@@ -1,0 +1,108 @@
+import type { CitizenProfile } from '@/types/welfare';
+
+export const raviProfile: CitizenProfile = {
+  name: 'Ravi Kumar',
+  age: 42,
+  gender: 'Male',
+  state: 'Uttar Pradesh',
+  district: 'Varanasi',
+  areaType: 'Rural',
+  occupation: 'Farmer',
+  maritalStatus: 'Married',
+  familyMembers: 4,
+  householdIncome: 180000,
+  dependents: 3,
+  existingBenefits: 'Ration card (PDS)',
+  categories: ['Farmer'],
+  isFarmer: true,
+  landholding: 'Marginal (up to 1 hectare)',
+  isStudent: false,
+  educationLevel: undefined,
+  hasDisability: false,
+  isSeniorCitizen: false,
+  isWomanHeadedHousehold: false,
+  hasBplCard: true,
+  consent: true,
+};
+
+export function createEmptyProfile(): CitizenProfile {
+  return {
+    name: '',
+    age: 0,
+    gender: 'Male',
+    state: '',
+    district: '',
+    areaType: 'Rural',
+    occupation: '',
+    maritalStatus: 'Single',
+    familyMembers: 1,
+    householdIncome: 0,
+    dependents: 0,
+    existingBenefits: '',
+    categories: [],
+    isFarmer: false,
+    landholding: undefined,
+    isStudent: false,
+    educationLevel: undefined,
+    hasDisability: false,
+    isSeniorCitizen: false,
+    isWomanHeadedHousehold: false,
+    hasBplCard: false,
+    consent: false,
+  };
+}
+
+export const raviApplications = [
+  {
+    id: 'NY-2026-00125',
+    schemeId: 'pmkisan',
+    schemeName: 'PM-KISAN Samman Nidhi',
+    citizenName: 'Ravi Kumar',
+    status: 'Document Verification' as const,
+    currentStep: 1,
+    steps: [
+      { label: 'Application Submitted', status: 'done' as const, detail: 'Submitted on 28 Aug 2026' },
+      { label: 'Document Verification', status: 'current' as const, detail: 'Your submitted income certificate is being verified.' },
+      { label: 'Department Review', status: 'pending' as const, detail: 'Awaiting document verification completion.' },
+      { label: 'Decision', status: 'pending' as const, detail: 'Pending' },
+      { label: 'Benefit Delivery', status: 'pending' as const, detail: 'Pending' },
+    ],
+    lastUpdated: 'Today',
+    nextAction: 'Your submitted income certificate is being verified.',
+    hasIssue: false,
+    issueDetail: '',
+    submittedDate: '28 Aug 2026',
+  },
+  {
+    id: 'NY-2026-00131',
+    schemeId: 'ayushman',
+    schemeName: 'Ayushman Bharat (PM-JAY)',
+    citizenName: 'Ravi Kumar',
+    status: 'Document Verification' as const,
+    currentStep: 1,
+    steps: [
+      { label: 'Application Submitted', status: 'done' as const, detail: 'Submitted on 30 Aug 2026' },
+      { label: 'Document Verification', status: 'current' as const, detail: 'Ration card could not be verified.' },
+      { label: 'SECC Verification', status: 'pending' as const, detail: 'Awaiting document verification.' },
+      { label: 'Decision', status: 'pending' as const, detail: 'Pending' },
+      { label: 'Benefit Delivery', status: 'pending' as const, detail: 'Pending' },
+    ],
+    lastUpdated: 'Yesterday',
+    nextAction: 'Your ration card could not be verified. Please re-upload or fix the issue.',
+    hasIssue: true,
+    issueDetail: 'Income certificate could not be verified. The document uploaded was unclear or incomplete. Please re-upload a clear, complete copy.',
+    submittedDate: '30 Aug 2026',
+  },
+];
+
+export const raviComplaints = [
+  {
+    id: 'NY-COMP-2026-0042',
+    type: 'Application delayed',
+    description: 'My PM-KISAN application has been in document verification for over 15 days. No update has been provided.',
+    status: 'Under Review' as const,
+    lastUpdate: '1 Sep 2026',
+    assignedDepartment: 'Department of Agriculture, Varanasi',
+    date: '30 Aug 2026',
+  },
+];
